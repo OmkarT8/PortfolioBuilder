@@ -1,0 +1,34 @@
+﻿.bdy {
+    padding-top:68px;
+    padding-bottom:0px;
+    width:100%;
+    overflow-x:hidden;
+}
+.body-contents{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+.dl-horizontal dt{
+    white-space:normal;
+}
+
+.navbar-nav li a {
+    color: #000000 !important;
+    font-size: 21px;
+    font-weight: 600;
+    font-family: 'Rajdhani', sans-serif;
+    margin-left: 7px;
+    margin-right: 7px;
+} 
+
+.navbar-nav li a:hover{
+    color:#98205b !important;
+    text-decoration:underline;
+    text-underline-position:under;
+}
+
+.right-link{
+    margin-left:3px;
+}

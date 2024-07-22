@@ -1,0 +1,253 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewBag.Title = "getAllDetails";
+    Layout = "~/Views/Shared/_DashBoard.cshtml";
+}
+
+<style>
+    th{
+        text-align:center;
+    }
+</style>
+
+<section class="container-fluid" style="background-color: #49855b">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-sm-3 py-2">
+            <div class="card align-items-center border-0" style="background-color: #49855b;">
+                <img class="rounded-circle" src="@ViewBag.Image" width="400" height="400" />
+                <div class="card-body">
+                    <h3 class="card-title text-white text-capitalize" style="text-align:center">@Model.Rows[0][0]</h3>
+                    <input type="button" class="btn btn-dark btn-block d-flex justify-content-center" value="Change Profile Picture" onclick="@("window.location.href='" + @Url.Action( "ChangeDP", "UserDetails",new {@id=@TempData["userid"] }) + "'");" />
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+
+    <div class="container w-75 h-50 ">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-9">
+                <h1 class="text-white mb-4">Personal Details</h1>
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body">
+                        <table class="table table-borderless">
+                            <tr><th>Your Name</th><td>@Model.Rows[0][0]</td></tr>
+                            <tr><th>Role/Job Profile</th><td>@Model.Rows[0][1]</td></tr>
+                            <tr><th>About Yourself</th><td>@Model.Rows[0][2]</td></tr>
+                            <tr><th>Your Email</th><td>@Model.Rows[0][4]</td></tr>
+                            <tr><th>Your Contact</th><td>@Model.Rows[0][5]</td></tr>
+                        </table>
+                        <div class="px-5">
+                            <input type="button" class="btn btn-dark btn-block" value="Edit " onclick="@("window.location.href='" + @Url.Action( "EditUD", "UserDetails",new {@id=@TempData["userid"] }) + "'");" />
+                            <br />
+                        </div>        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container w-75 h-50 ">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-9">
+                <h1 class="text-white mb-4">Educational Details</h1>
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body">
+                        <table class="table table-borderless" width="100%">
+                            <tr><th>SSC Passing Date</th><td>@Model.Rows[0][6]</td></tr>
+                            <tr><th>SSC School</th><td>@Model.Rows[0][7]</td></tr>
+                            <tr><th>SSC Percentage</th><td>@Model.Rows[0][8]</td></tr>
+                            <tr><th>HSC Passing Date</th><td>@Model.Rows[0][9]</td></tr>
+                            <tr><th>HSC College</th><td>@Model.Rows[0][10]</td></tr>
+                            <tr><th>HSC Percentage</th><td>@Model.Rows[0][11]</td></tr>
+                            <tr><th>Graduation University</th><td>@Model.Rows[0][12]</td></tr>
+                            <tr><th>Graduation CGPA</th><td>@Model.Rows[0][13]</td></tr>
+                        </table>
+                        <div class="px-5">
+                            <input type="button" class="btn btn-dark btn-block" value="Edit " onclick="@("window.location.href='" + @Url.Action( "EditED", "UserEducation",new {@id=@TempData["userid"] }) + "'");"/>
+                        </div> 
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container w-75 h-50 ">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-9">
+                <h1 class="text-white mb-4">Skills & Languages known</h1>
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body">
+                        <table class="table table-borderless" width="100%">
+                            <tr><th>Professional Skills</th><td>@Model.Rows[0][14]</td></tr>
+                            <tr><th>Frontend Skills</th><td>@Model.Rows[0][15]</td></tr>
+                            <tr><th>Backend Skills</th><td>@Model.Rows[0][16]</td></tr>
+                            <tr><th>Languages Known</th><td>@Model.Rows[0][17]</td></tr>
+                        </table>
+                        <div class="px-5">
+                            <input type="button" class="btn btn-dark btn-block" value="Edit " onclick="@("window.location.href='" + @Url.Action( "EditSLD", "SkillLang",new {@id=@TempData["userid"] }) + "'");" />
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container w-75 h-50 ">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-9">
+                <h1 class="text-white mb-4">Project Details</h1>
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body">
+                        <div class="card-body">
+                            <table class="table table-borderless" width="100%">
+                                <tr><th>Project Name</th><td>@Model.Rows[0][18]</td></tr>
+                                <tr><th>Project Description</th><td>@Model.Rows[0][19]</td></tr>
+                                <tr><th>Project Name</th><td>@Model.Rows[0][20]</td></tr>
+                                <tr><th>Project Description</th><td>@Model.Rows[0][21]</td></tr>
+                            </table>
+                            <div class="px-5">
+                            <input type="button" class="btn btn-dark btn-block" value="Edit" onclick="@("window.location.href='" + @Url.Action( "EditPD", "Project",new {@id=@TempData["userid"] }) + "'");" />
+                            </div>                                
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="container w-75 h-50 ">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-xl-9">
+                <h1 class="text-white mb-4">Experience Details</h1>
+                <div class="card" style="border-radius: 15px;">
+                    <div class="card-body">
+                        <table class="table table-borderless" width="100%">
+                            <tr><th>Start Date</th><td>@Model.Rows[0][22]</td></tr>
+                            <tr><th>End Date</th><td>@Model.Rows[0][23]</td></tr>
+                            <tr><th>Job Description</th><td>@Model.Rows[0][24]</td></tr>
+                            <tr><th>Start Date</th><td>@Model.Rows[0][25]</td></tr>
+                            <tr><th>End Date</th><td>@Model.Rows[0][26]</td></tr>
+                            <tr><th>Job Description</th><td>@Model.Rows[0][27]</td></tr>
+                        </table>
+                        <div class="px-5">
+                            <input type="button" class="btn btn-dark btn-block" value="Edit" onclick="@("window.location.href='" + @Url.Action( "EditEX", "Experience",new {@id=@TempData["userid"] }) + "'");" />
+                        </div>
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+</section>
+
+<!--<div class="container-fluid align-items-center" style="background-color: #49855b;">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-sm-3 py-2">
+            <div class="card align-items-center border-0" style="background-color: #49855b;">
+                <img class="rounded-circle" src="@ViewBag.Image" width="400" height="400"/>
+                <div class="card-body">
+                    <h3 class="card-title text-white text-capitalize" style="text-align:center">@Model.Rows[0][0]</h3>
+                    <input type="button" class="btn btn-dark btn-block d-flex justify-content-center" value="Change Profile Picture" onclick="@("window.location.href='" + @Url.Action( "ChangeDP", "UserDetails",new {@id=@TempData["userid"] }) + "'");" />
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row py-5 px-5 justify-content-center" style="background-color: #49855b;">-->
+        @*<div class="col-md-10"></div>*@
+        <!--<h1 class="text-white mb-4 align-items-center">Personal Details</h1>
+        <div class="card w-100" style="border-radius: 15px;">
+            <div class="card-body">
+                <table class="table table-borderless">
+                    <tr><th>Name</th><td>@Model.Rows[0][0]</td></tr>
+                    <tr><th>Role</th><td>@Model.Rows[0][1]</td></tr>
+                    <tr><th>About</th><td>@Model.Rows[0][2]</td></tr>
+                    <tr><th>Email</th><td>@Model.Rows[0][4]</td></tr>
+                    <tr><th>Contact</th><td>@Model.Rows[0][5]</td></tr>
+                </table>
+                <br />
+                <input type="button" class="btn btn-dark btn-block " value="Edit " onclick="@("window.location.href='" + @Url.Action( "EditUD", "UserDetails",new {@id=@TempData["userid"] }) + "'");" />
+            </div>
+        </div>
+    </div>
+    <div class="row py-5 px-5 justify-content-center" style="background-color: #49855b">
+        <div class="col-md-10"></div>
+        <h1 class="text-white mb-4">Educational Details</h1>
+        <div class="card w-100" style="border-radius: 15px;">
+            <div class="card-body">
+                <table class="table table-borderless" width="100%">
+                    <tr><th>SSC Passing Date</th><td>@Model.Rows[0][6]</td></tr>
+                    <tr><th>SSC School</th><td>@Model.Rows[0][7]</td></tr>
+                    <tr><th>SSC Percentage</th><td>@Model.Rows[0][8]</td></tr>
+                    <tr><th>HSC Passing Date</th><td>@Model.Rows[0][9]</td></tr>
+                    <tr><th>HSC College</th><td>@Model.Rows[0][10]</td></tr>
+                    <tr><th>HSC Percentage</th><td>@Model.Rows[0][11]</td></tr>
+                    <tr><th>Graduation University</th><td>@Model.Rows[0][12]</td></tr>
+                    <tr><th>Graduation CGPA</th><td>@Model.Rows[0][13]</td></tr>
+                </table>
+                <input type="button" class="btn btn-dark btn-block" value="Edit " onclick="@("window.location.href='" + @Url.Action( "EditED", "UserEducation",new {@id=@TempData["userid"] }) + "'");" />
+                <br />
+            </div>
+        </div>
+    </div>
+    <div class="row py-5 px-5 justify-content-center" style="background-color: #49855b">
+        <div class="col-md-10"></div>
+        <h1 class="text-white mb-4">Skills & Languages Known</h1>
+        <div class="card w-100" style="border-radius: 15px;">
+            <div class="card-body">
+                <table class="table table-borderless" width="100%">
+                    <tr><th>Professional Skills</th><td>@Model.Rows[0][14]</td></tr>
+                    <tr><th>Frontend Skills</th><td>@Model.Rows[0][15]</td></tr>
+                    <tr><th>Backend Skills</th><td>@Model.Rows[0][16]</td></tr>
+                    <tr><th>Languages Known</th><td>@Model.Rows[0][17]</td></tr>
+                </table>
+                <input type="button" class="btn btn-dark btn-block" value="Edit " onclick="@("window.location.href='" + @Url.Action( "EditSLD", "SkillLang",new {@id=@TempData["userid"] }) + "'");" />
+                <br />
+            </div>
+        </div>
+    </div>
+    <div class="row py-5 px-5 justify-content-center" style="background-color: #49855b">
+        <div class="col-md-10"></div>
+        <h1 class="text-white mb-4">Your Project Details</h1>
+        <div class="card w-100" style="border-radius: 15px;">
+            <div class="card-body">
+                <table class="table table-borderless" width="100%">
+                    <tr><th>Project Name</th><td>@Model.Rows[0][18]</td></tr>
+                    <tr><th>Project Description</th><td>@Model.Rows[0][19]</td></tr>
+                    <tr><th>Project Name</th><td>@Model.Rows[0][20]</td></tr>
+                    <tr><th>Project Description</th><td>@Model.Rows[0][21]</td></tr>
+                </table>
+                <input type="button" class="btn btn-dark btn-block" value="Edit" onclick="@("window.location.href='" + @Url.Action( "EditPD", "Project",new {@id=@TempData["userid"] }) + "'");" />
+                <br />
+            </div>
+        </div>
+    </div>
+    <div class="row py-5 px-5 justify-content-center" style="background-color: #49855b">
+        <div class="col-md-10"></div>
+        <h1 class="text-white mb-4">Experience Details</h1>
+        <div class="card w-100" style="border-radius: 15px;">
+            <div class="card-body">
+                <table class="table table-borderless" width="100%">
+                    <tr><th>Start Date</th><td>@Model.Rows[0][22]</td></tr>
+                    <tr><th>End Date</th><td>@Model.Rows[0][23]</td></tr>
+                    <tr><th>Job Description</th><td>@Model.Rows[0][24]</td></tr>
+                    <tr><th>Start Date</th><td>@Model.Rows[0][25]</td></tr>
+                    <tr><th>End Date</th><td>@Model.Rows[0][26]</td></tr>
+                    <tr><th>Job Description</th><td>@Model.Rows[0][27]</td></tr>
+                </table>
+                <input type="button" class="btn btn-dark btn-block" value="Edit" onclick="@("window.location.href='" + @Url.Action( "EditEX", "Experience",new {@id=@TempData["userid"] }) + "'");" />
+                <br />
+            </div>
+        </div>
+    </div>
+</div>-->
+
+

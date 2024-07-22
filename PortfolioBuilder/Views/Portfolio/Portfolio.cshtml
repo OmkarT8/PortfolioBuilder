@@ -1,0 +1,217 @@
+﻿@model System.Data.DataTable
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Portfolio</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+<link href="~/FormMaster.css" rel="stylesheet" />
+</head>
+<body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+    <div class="container">
+        <div class="team-single">
+            <div class="row">
+
+                <div class="col-lg-5 col-md-5 py-2">
+                    <div class="card align-items-center border-0">
+                        <img class="" src="@ViewBag.Image" width="300" height="200" style="border-radius:20px;"/>
+                        <div class="bg-white padding-30px-all md-padding-25px-all sm-padding-20px-all text-center">
+                            <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600 text-capitalize">@Model.Rows[0][0]</h4>
+                            <p class="sm-width-95 sm-margin-auto">@Model.Rows[0][1]</p>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="col-lg-4 col-md-5 xs-margin-30px-bottom">
+            <div class="card">
+                <img class="rounded-circle" src="@ViewBag.Image" />
+            </div>
+            <div class="bg-white padding-30px-all md-padding-25px-all sm-padding-20px-all text-center">
+                <h4 class="margin-10px-bottom font-size24 md-font-size22 sm-font-size20 font-weight-600">@Model.Rows[0][0]</h4>
+                <p class="sm-width-95 sm-margin-auto">@Model.Rows[0][1]</p>
+
+            </div>
+        </div>*@
+
+                <div class="col-lg-7 col-md-7">
+                    <div class="team-single-text padding-50px-left sm-no-padding-left">
+                        <h1 class="font-size38 sm-font-size32 xs-font-size30" style="font-size:80px;">Hello</h1>
+                        <p class="no-margin-bottom">@Model.Rows[0][2].</p>
+                        <div class="contact-info-section margin-40px-tb">
+                            <ul class="list-style9 no-margin">
+
+                                <li>
+
+                                    <div class="row">
+                                        <div class="col-md-5 col-5">
+                                            <i class="fas fa-mobile-alt text-purple"></i>
+                                            <strong class="margin-10px-left xs-margin-four-left text-purple">Phone:</strong>
+                                        </div>
+                                        <div class="col-md-7 col-7">
+                                            <p>@Model.Rows[0][5]</p>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="row">
+                                        <div class="col-md-5 col-5">
+                                            <i class="fas fa-envelope text-pink"></i>
+                                            <strong class="margin-10px-left xs-margin-four-left text-pink">Email:</strong>
+                                        </div>
+                                        <div class="col-md-7 col-7">
+                                            <p>@Model.Rows[0][4]</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <h3 style="text-align:center">Educational Details</h3>
+            <br />
+
+            <div class="row ">
+                <div class="card-deck" style="padding:10px;">
+                    <div class="card" style="width:500px">
+                        <div class="card-body">
+                            <h5 class="card-title">SSC Details</h5>
+                            <p class="card-text">
+                                Passing Date : @Model.Rows[0][6]<br />
+                                School       : @Model.Rows[0][7]<br />
+                                Percentage   : @Model.Rows[0][8]<br />
+                            </p>       
+                        </div>
+                    </div>
+                    <div class="card ">
+                        <div class="card-body">
+                            <h5 class="card-title">HSC Details</h5>
+                            <p class="card-text">
+                                Passing Date : @Model.Rows[0][9]<br />
+                                College      : @Model.Rows[0][10]<br />
+                                Percentage   : @Model.Rows[0][11]<br />
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="card-title">Higher Education</h5>
+                            <p class="card-text">
+                                University : @Model.Rows[0][12]<br />
+                                CGPA       : @Model.Rows[0][13]<br />
+                            </p>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <h3 style="text-align:center">Skills & Languages Known </h3>
+            <br />
+            <div class="row">
+                <div class="card-deck" style="padding:10px;">
+                    <div class="card" style="width:500px">
+                        <div class="card-body">
+                            <h5 class="card-title">Professional Skills</h5>
+                            <p class="card-text">@Model.Rows[0][14]</p>
+                            
+                        </div>
+                    </div>
+                    <div class="card ">
+                        <div class="card-body">
+                            <h5 class="card-title">Frontend Skills</h5>
+                            <p class="card-text">@Model.Rows[0][15]</p>
+                            
+                        </div>
+                    </div>
+                    <div class="card ">
+                        <div class="card-body">
+                            <h5 class="card-title">Backend Skills</h5>
+                            <p class="card-text">@Model.Rows[0][16]</p>
+                            
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Languages Known</h5>
+                            <p class="card-text">@Model.Rows[0][17]</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <h3 style="text-align:center">Project Details </h3>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card w-100" style="background-color:aquamarine">
+                        <div class="card-body">
+                            <h5 class="card-title">@Model.Rows[0][18]</h5>
+                            <p class="card-text">@Model.Rows[0][19]</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card w-100" style="background-color:aquamarine">
+                        <div class="card-body">
+                            <h5 class="card-title">@Model.Rows[0][20]</h5>
+                            <p class="card-text">@Model.Rows[0][21]</p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <hr />
+            <br />
+            <h3 style="text-align:center">Experience Details </h3>
+            <br />
+            <div class="row">
+                <div class="card-deck" style="padding:10px">
+                    <div class="card" style="width:900px">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <p class="card-text">
+                                From        : @Model.Rows[0][22]<br />
+                                To          : @Model.Rows[0][23]<br />
+                                Description : @Model.Rows[0][24]<br />
+                            </p>                           
+                        </div>
+                    </div>
+                    <div class="card ">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <p class="card-text">
+                                From        : @Model.Rows[0][25]<br />
+                                To          : @Model.Rows[0][26]<br />
+                                Description : @Model.Rows[0][27]<br />
+                            </p>                        
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

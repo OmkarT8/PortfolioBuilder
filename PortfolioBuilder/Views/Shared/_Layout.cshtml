@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+    <link href="~/Master.css" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="bdy">
+    <nav class="navbar fixed-top navbar-expand-md navbar-light shadow p-2 mb-5 bg-light">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand" style="font-family: 'Pacifico', cursive; font-size: 28px; ">Portfolio Builder</a>
+            <button type="button" data-toggle="collapse" data-target="#NavbarOptions" aria-controls="NavbarOptions" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"><span class="navbar-toggler-icon"></span></button>
+            <div id="NavbarOptions" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-md-auto justify-content-center">
+                    <li class="nav-item"><a href="@Url.Action("Index","Home")" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="@Url.Action("About","Home")" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="@Url.Action("Contact","Home")" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="@Url.Action("LoginView","Login")" class="nav-link">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="body-contents">
+        @RenderBody()
+        @*<div>
+            <footer class="container-fluid" style="height:60px;">
+                <p class="text-center">Copyright&copy; Omkar Tambe</p>
+            </footer>
+        </div>*@
+    </div>
+    <div>
+        <footer class="container-fluid" style="height:60px;">
+            <p class="text-center">Copyright&copy;PortfolioBuilder</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

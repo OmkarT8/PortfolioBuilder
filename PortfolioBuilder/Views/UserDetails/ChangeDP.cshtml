@@ -1,0 +1,84 @@
+﻿@model PortfolioBuilder.Models.UserDetailsModel
+
+@{
+    ViewBag.Title = "ChangeDP";
+    Layout = "~/Views/Shared/_DashBoard.cshtml";
+}
+
+@if (TempData["DPUpdated"] != null)
+{
+    <script type="text/javascript">
+    function successMsg()
+    {
+        var bResponse = confirm("Profile Picture Updated Successfully !");
+        if (bResponse === true)
+        {
+            var url = '@Url.Action("getAllDetails", "ShowAllData")';
+            window.location.href = url;
+        }
+        return bResponse;
+    }
+    successMsg();
+    </script>
+}
+
+
+@using (Html.BeginForm("ChangeDP", "UserDetails", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <section class="vh-100" style="background-color: #49855b">
+        <div class="container w-75 h-50 ">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-xl-9">
+                    <h1 class="text-white mb-4">Change Your Profile Picture</h1>
+                    <div class="card" style="border-radius: 15px;">
+                        <div class="card-body">
+
+                            <div class="form-horizontal">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Filepic, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        <input type="file" name="Filepic" required />
+                                        @Html.ValidationMessageFor(model => model.Filepic, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="Save" class="btn btn-dark btn-block btn-default" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @*<div class="form-horizontal">
+            <h4>UserDetailsModel</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Filepic, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" name="Filepic" required />
+                @Html.ValidationMessageFor(model => model.Filepic, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>*@
+}
+

@@ -1,0 +1,89 @@
+﻿@model PortfolioBuilder.Models.UserRegModel
+
+@{
+    ViewBag.Title = "UserRegView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["msg"] != null)
+{
+    <script type="text/javascript">
+    function successMsg()
+    {
+        var bResponse = confirm('User Registered Successfully !');
+        if (bResponse === true)
+        {
+            var url = '@Url.Action("LoginView", "Login")';
+            window.location.href = url;
+        }
+        return bResponse;
+    }
+    successMsg();
+    </script>
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="container my-md-5">
+        <div class="row py-5 shadow">
+            <div class="col-md-5">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                     class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-7">
+                <div class="form-horizontal mx-5">
+                    <div class="form-group">
+                        <div class="col-md-10">
+                            <h2 class="text-uppercase">Create an account</h2>
+                        </div>
+                    </div>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Register" class="btn btn-dark btn-block" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <h6>@Html.ViewData["nameexist"]</h6>
+                            <h6>@Html.ViewData["msg"]</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
